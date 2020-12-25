@@ -9,6 +9,7 @@ var mongoose = require('mongoose');
 var homeRouter=require('./routes/home');
 var gridRouter=require('./routes/grid');
 var designRouter=require('./routes/design');
+var messageRouter=require('./routes/message');
 
 
 // 第一步, 连接数据库
@@ -43,6 +44,7 @@ app.use(cors());
 app.use('/index',homeRouter);
 app.use('/index',gridRouter);
 app.use('/index',designRouter);
+app.use('/message',messageRouter);
 app.use(function(req, res, next) {
   next(createError(404));
 });
