@@ -10,11 +10,15 @@ var mongoose = require('mongoose');
 var homeRouter=require('./routes/home');
 var gridRouter=require('./routes/grid');
 var designRouter=require('./routes/design');
+<<<<<<< HEAD
 var designerRouter=require('./routes/designer');
 var homeRouter = require('./routes/home');
 var gridRouter = require('./routes/grid');
 var designRouter = require('./routes/design');
 var loginRouter = require('./routes/login')
+=======
+var messageRouter=require('./routes/message');
+>>>>>>> zjc
 
 
 // 第一步, 连接数据库
@@ -47,11 +51,15 @@ app.use(cors());
 app.use('/index',homeRouter);
 app.use('/index',gridRouter);
 app.use('/index',designRouter);
+<<<<<<< HEAD
 app.use('/index',designerRouter);
 app.use('/index', homeRouter);
 app.use('/index', gridRouter);
 app.use('/index', designRouter);
 app.use('/api', loginRouter)
+=======
+app.use('/message',messageRouter);
+>>>>>>> zjc
 app.use(function(req, res, next) {
     next(createError(404));
 });
