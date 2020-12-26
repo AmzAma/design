@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Message = require("./../model/message");
+const Message = require("../model/message");
 router.get('/getMessage', (req, res, next) => {
   Message.find({}, function (err, results) {
     res.json({
