@@ -7,15 +7,15 @@ var cors = require('cors');
 var mongoose = require('mongoose');
 
 //导入路由
-var homeRouter=require('./routes/home');
-var gridRouter=require('./routes/grid');
-var designRouter=require('./routes/design');
-var designerRouter=require('./routes/designer');
+var homeRouter = require('./routes/home');
+var gridRouter = require('./routes/grid');
+var designRouter = require('./routes/design');
+var designerRouter = require('./routes/designer');
 var homeRouter = require('./routes/home');
 var gridRouter = require('./routes/grid');
 var designRouter = require('./routes/design');
 var loginRouter = require('./routes/login')
-var messageRouter=require('./routes/message');
+var messageRouter = require('./routes/message');
 
 
 // 第一步, 连接数据库
@@ -45,15 +45,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 // 使用cors模块解决跨域，需要执行以下
 app.use(cors());
 //使用路由
-app.use('/index',homeRouter);
-app.use('/index',gridRouter);
-app.use('/index',designRouter);
-app.use('/index',designerRouter);
+app.use('/index', homeRouter);
+app.use('/index', gridRouter);
+app.use('/index', designRouter);
+app.use('/index', designerRouter);
 app.use('/index', homeRouter);
 app.use('/index', gridRouter);
 app.use('/index', designRouter);
 app.use('/api', loginRouter)
-app.use('/message',messageRouter);
+app.use('/message', messageRouter);
 app.use(function(req, res, next) {
     next(createError(404));
 });

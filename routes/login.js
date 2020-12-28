@@ -2,20 +2,32 @@ const express = require('express')
 const router = express.Router()
 const mongoose = require('mongoose');
 const db = mongoose.connection;
-const Login = require("./../model/login");
-// 连接数据库 写在了app.js
+// 连接数据库
+mongoose.connect('mongodb://42.192.149.116/login', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+    console.log('数据库连接成功')
+});
 
-//  创建骨架 在moudel文件
-
+//  创建骨架
+const loginSchema = mongoose.Schema({
+    name: String,
+    password: String
+});
 // 创建模型
+const Login = mongoose.model('webs', loginSchema);
 router.post('/login', (req, res, next) => {
     // 查找数据库
     Login.find({}, (err, doc) => {
+
         if (err) console.log(err);;
-        const { username, password } = req.body
+        const { tel, password } = req.body
         let flag = false
         doc.forEach((item, index) => {
-            if (item.name === username && item.password === password) {
+            if (item.tel === tel && item.password === password) {
                 flag = true
             }
         })
@@ -27,7 +39,7 @@ router.post('/login', (req, res, next) => {
 
             })
         } else {
-            if (doc.some(item => item.name === username)) {
+            if (doc.map(item => item.tel === tel)) {
                 console.log(2)
                 res.json({
                     status: 1,
