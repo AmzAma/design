@@ -14,7 +14,7 @@ db.once('open', function() {
 
 //  创建骨架
 const loginSchema = mongoose.Schema({
-    name: String,
+    tel: String,
     password: String
 });
 // 创建模型
