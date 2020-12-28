@@ -12,11 +12,11 @@ var gridRouter = require('./routes/grid');
 var designRouter = require('./routes/design');
 var designerRouter = require('./routes/designer');
 var homeRouter = require('./routes/home');
-var gridRouter = require('./routes/grid');
 var designRouter = require('./routes/design');
 var loginRouter = require('./routes/login')
 var messageRouter = require('./routes/message');
 
+var IndexCaseRouter=require('./routes/indexcase');
 
 // 第一步, 连接数据库
 mongoose.connect('mongodb://42.192.149.116:27017/vue3', { useNewUrlParser: true, useUnifiedTopology: true });
@@ -50,10 +50,10 @@ app.use('/index', gridRouter);
 app.use('/index', designRouter);
 app.use('/index', designerRouter);
 app.use('/index', homeRouter);
-app.use('/index', gridRouter);
 app.use('/index', designRouter);
 app.use('/api', loginRouter)
 app.use('/message', messageRouter);
+app.use('/index',IndexCaseRouter);
 app.use(function(req, res, next) {
     next(createError(404));
 });
