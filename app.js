@@ -11,7 +11,6 @@ var homeRouter=require('./routes/home');
 var gridRouter=require('./routes/grid');
 var designRouter = require('./routes/design');
 var designerRouter = require('./routes/designer');
-var loginRouter = require('./routes/login')
 var messageRouter = require('./routes/message');
 var IndexCaseRouter=require('./routes/indexcase');
 var GongzRouter=require('./routes/gongz');
@@ -49,7 +48,6 @@ app.use('/index',designerRouter);
 app.use('/index', homeRouter);
 app.use('/index', gridRouter);
 app.use('/index', homeRouter);
-app.use('/api', loginRouter)
 app.use('/message', messageRouter);
 app.use('/index',IndexCaseRouter);
 app.use('/index',GongzRouter);
