@@ -7,16 +7,15 @@ var cors = require('cors');
 var mongoose = require('mongoose');
 
 //导入路由
-var homeRouter = require('./routes/home');
-var gridRouter = require('./routes/grid');
+var homeRouter=require('./routes/home');
+var gridRouter=require('./routes/grid');
 var designRouter = require('./routes/design');
 var designerRouter = require('./routes/designer');
-var homeRouter = require('./routes/home');
-var gridRouter = require('./routes/grid');
-var designRouter = require('./routes/design');
 var loginRouter = require('./routes/login')
 var messageRouter = require('./routes/message');
-
+var IndexCaseRouter=require('./routes/indexcase');
+var GongzRouter=require('./routes/gongz');
+var QuestionRouter=require('./routes/question');
 
 // 第一步, 连接数据库
 mongoose.connect('mongodb://42.192.149.116:27017/vue3', { useNewUrlParser: true, useUnifiedTopology: true });
@@ -45,15 +44,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 // 使用cors模块解决跨域，需要执行以下
 app.use(cors());
 //使用路由
+app.use('/index',designRouter);
+app.use('/index',designerRouter);
 app.use('/index', homeRouter);
 app.use('/index', gridRouter);
-app.use('/index', designRouter);
-app.use('/index', designerRouter);
 app.use('/index', homeRouter);
-app.use('/index', gridRouter);
-app.use('/index', designRouter);
 app.use('/api', loginRouter)
 app.use('/message', messageRouter);
+app.use('/index',IndexCaseRouter);
+app.use('/index',GongzRouter);
+app.use('/question',QuestionRouter);
 app.use(function(req, res, next) {
     next(createError(404));
 });
