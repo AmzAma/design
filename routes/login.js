@@ -3,15 +3,7 @@ const router = express.Router()
 const mongoose = require('mongoose');
 // const db = mongoose.connection;
 // 连接数据库
-<<<<<<< HEAD
-<<<<<<< HEAD
 // mongoose.connect('mongodb://42.192.149.116:27017/login', {
-=======
-// mongoose.connect('mongodb://42.192.149.116/login', {
->>>>>>> wjy
-=======
-// mongoose.connect('mongodb://42.192.149.116/login', {
->>>>>>> zjc
 //     useNewUrlParser: true,
 //     useUnifiedTopology: true
 // });
