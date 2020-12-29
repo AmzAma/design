@@ -3,14 +3,14 @@ const router = express.Router()
 const mongoose = require('mongoose');
 const db = mongoose.connection;
 // 连接数据库
-mongoose.connect('mongodb://42.192.149.116/login', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-});
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-    console.log('数据库连接成功')
-});
+// mongoose.connect('mongodb://42.192.149.116/login', {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true
+// });
+// db.on('error', console.error.bind(console, 'connection error:'));
+// db.once('open', function() {
+//     console.log('数据库连接成功')
+// });
 
 //  创建骨架
 const loginSchema = mongoose.Schema({
